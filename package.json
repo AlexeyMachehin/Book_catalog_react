@@ -2,6 +2,7 @@
   "name": "book_catalog_react_redux",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://alexeymachehin.github.io/Book_Catalog_React_Redux/",
   "dependencies": {
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
@@ -17,6 +18,7 @@
     "@types/react-dom": "^18.0.6",
     "firebase": "^9.9.3",
     "formik": "^2.2.9",
+    "gh-pages": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.2",
@@ -31,7 +33,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d docs"
+   
   },
   "eslintConfig": {
     "extends": [

@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Book_Catalog_React_Redux/static/css/main.07ca0955.css",
+    "main.js": "/Book_Catalog_React_Redux/static/js/main.c57311e5.js",
+    "static/js/787.c96e01ea.chunk.js": "/Book_Catalog_React_Redux/static/js/787.c96e01ea.chunk.js",
+    "index.html": "/Book_Catalog_React_Redux/index.html",
+    "main.07ca0955.css.map": "/Book_Catalog_React_Redux/static/css/main.07ca0955.css.map",
+    "main.c57311e5.js.map": "/Book_Catalog_React_Redux/static/js/main.c57311e5.js.map",
+    "787.c96e01ea.chunk.js.map": "/Book_Catalog_React_Redux/static/js/787.c96e01ea.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.07ca0955.css",
+    "static/js/main.c57311e5.js"
+  ]
+}
