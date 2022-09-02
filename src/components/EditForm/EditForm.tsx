@@ -26,9 +26,14 @@ export default function EditForm(props) {
 
       author: Yup.string().required("Required"),
 
-      year: Yup.number(),
+      year: Yup.number()
+        .typeError("Enter a  number greater than 1800")
+        .min(1800, "Must be greater than 1800"),
 
-      rating: Yup.number(),
+      rating: Yup.number()
+        .typeError("Enter a  number 1-10")
+        .min(0, "Must be a positive number")
+        .max(10, "Should less than 10"),
 
       isbn: Yup.string()
         .min(13, "must be at least 13 characters long")
@@ -54,77 +59,6 @@ export default function EditForm(props) {
       );
     },
   });
-  // return (
-  //   <form className={classes.editForm} onSubmit={formik.handleSubmit}>
-  //     <p>Edit book</p>
-  //     <label htmlFor="title">title</label>
-  //     <input
-  //       id="title"
-  //       name="title"
-  //       type="text"
-  //       onChange={formik.handleChange}
-  //       onBlur={formik.handleBlur}
-  //       value={formik.values.title}
-  //     />
-  //     {formik.touched.title && formik.errors.title ? (
-  //       <div>{formik.errors.title as string}</div>
-  //     ) : null}
-
-  //     <label htmlFor="author">author</label>
-  //     <input
-  //       id="author"
-  //       name="author"
-  //       type="text"
-  //       onChange={formik.handleChange}
-  //       onBlur={formik.handleBlur}
-  //       value={formik.values.author}
-  //     />
-  //     {formik.touched.author && formik.errors.author ? (
-  //       <div>{formik.errors.author as string}</div>
-  //     ) : null}
-
-  //     <label htmlFor="year">year</label>
-  //     <input
-  //       id="year"
-  //       name="year"
-  //       type="text"
-  //       onChange={formik.handleChange}
-  //       onBlur={formik.handleBlur}
-  //       value={formik.values.year}
-  //     />
-  //     {formik.touched.year && formik.errors.year ? (
-  //       <div>{formik.errors.year as string}</div>
-  //     ) : null}
-
-  //     <label htmlFor="rating">rating</label>
-  //     <input
-  //       id="rating"
-  //       name="rating"
-  //       type="text"
-  //       onChange={formik.handleChange}
-  //       onBlur={formik.handleBlur}
-  //       value={formik.values.rating}
-  //     />
-  //     {formik.touched.rating && formik.errors.rating ? (
-  //       <div>{formik.errors.rating as string}</div>
-  //     ) : null}
-
-  //     <label htmlFor="isbn">isbn</label>
-  //     <input
-  //       id="isbn"
-  //       name="isbn"
-  //       type="text"
-  //       onChange={formik.handleChange}
-  //       onBlur={formik.handleBlur}
-  //       value={formik.values.isbn}
-  //     />
-  //     {formik.touched.isbn && formik.errors.isbn ? (
-  //       <div>{formik.errors.isbn as string}</div>
-  //     ) : null}
-
-  //     <button type="submit">Submit</button>
-  //   </form>
-  // );
 
   return (
     <form className={classes.editForm} onSubmit={formik.handleSubmit}>
@@ -137,10 +71,11 @@ export default function EditForm(props) {
         onBlur={formik.handleBlur}
         value={formik.values.title}
         required
+        error={formik.touched.title && Boolean(formik.errors.title)}
       />
 
       {formik.touched.title && formik.errors.title ? (
-        <div>{formik.errors.title as string}</div>
+        <div style={{ color: "red" }}>{formik.errors.title as string}</div>
       ) : null}
 
       <TextField
@@ -150,9 +85,10 @@ export default function EditForm(props) {
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         value={formik.values.author}
+        error={formik.touched.author && Boolean(formik.errors.author)}
       />
       {formik.touched.author && formik.errors.author ? (
-        <div>{formik.errors.author as string}</div>
+        <div style={{ color: "red" }}>{formik.errors.author as string}</div>
       ) : null}
 
       <TextField
@@ -161,9 +97,10 @@ export default function EditForm(props) {
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         value={formik.values.year}
+        error={formik.touched.year && Boolean(formik.errors.year)}
       />
       {formik.touched.year && formik.errors.year ? (
-        <div>{formik.errors.year as string}</div>
+        <div style={{ color: "red" }}>{formik.errors.year as string}</div>
       ) : null}
 
       <TextField
@@ -172,9 +109,10 @@ export default function EditForm(props) {
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         value={formik.values.rating}
+        error={formik.touched.rating && Boolean(formik.errors.rating)}
       />
       {formik.touched.rating && formik.errors.rating ? (
-        <div>{formik.errors.rating as string}</div>
+        <div style={{ color: "red" }}>{formik.errors.rating as string}</div>
       ) : null}
 
       <TextField
@@ -183,9 +121,10 @@ export default function EditForm(props) {
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         value={formik.values.isbn}
+        error={formik.touched.isbn && Boolean(formik.errors.isbn)}
       />
       {formik.touched.isbn && formik.errors.isbn ? (
-        <div>{formik.errors.isbn as string}</div>
+        <div style={{ color: "red" }}>{formik.errors.isbn as string}</div>
       ) : null}
 
       <Button type="submit" variant="outlined">

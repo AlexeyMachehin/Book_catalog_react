@@ -6,7 +6,7 @@ export default function BookCardsSortedContainer(props) {
   return (
     <div className={classes.wrapper}>
       <p className={classes.BookCardsSortedContainerHeader}>
-        {props.sortingType}: {props.books[0][props.sortingType] === 0 ? `not specified `: props.books[0][props.sortingType]}
+        {props.sortingType}: {props.books[0][props.sortingType]}
       </p>
 
       <div className={classes.BookCardsSortedContainer}>

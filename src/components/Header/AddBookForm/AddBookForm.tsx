@@ -9,6 +9,7 @@ import TextField from "@mui/material/TextField";
 import { Card } from "@mui/material";
 import { Button } from "@mui/material";
 import Typography from "@mui/material/Typography";
+import { setLocale } from "yup";
 
 export default function AddBookForm() {
   const dispatch = useAppDispatch();
@@ -21,6 +22,7 @@ export default function AddBookForm() {
       rating: "",
       isbn: "",
     },
+
     validationSchema: Yup.object({
       title: Yup.string()
         .max(100, "Must be 100 characters or less")
@@ -29,9 +31,14 @@ export default function AddBookForm() {
 
       author: Yup.string().required("Required"),
 
-      year: Yup.number(),
+      year: Yup.number()
+        .typeError("Enter a  number greater than 1800")
+        .min(1800, "Must be greater than 1800"),
 
-      rating: Yup.number(),
+      rating: Yup.number()
+        .typeError("Enter a  number 1-10")
+        .min(0, "Must be a positive number")
+        .max(10, "Should less than 10"),
 
       isbn: Yup.string()
         .min(13, "must be at least 13 characters long")
@@ -39,7 +46,6 @@ export default function AddBookForm() {
         .matches(/^(?=(?:\D*\d){10}(?:(?:\D*\d){3})?$)[\d-]+$/, "error "),
     }),
     onSubmit: async (values) => {
-      
       dispatch(
         setNewBook({
           name: (values.title as any).trim(),
@@ -67,10 +73,11 @@ export default function AddBookForm() {
           onBlur={formik.handleBlur}
           value={formik.values.title}
           required
+          error={formik.touched.title && Boolean(formik.errors.title)}
         />
 
         {formik.touched.title && formik.errors.title ? (
-          <div>{formik.errors.title}</div>
+          <div style={{ color: "red" }}>{formik.errors.title}</div>
         ) : null}
 
         <TextField
@@ -80,9 +87,10 @@ export default function AddBookForm() {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.author}
+          error={formik.touched.author && Boolean(formik.errors.author)}
         />
         {formik.touched.author && formik.errors.author ? (
-          <div>{formik.errors.author}</div>
+          <div style={{ color: "red" }}>{formik.errors.author}</div>
         ) : null}
 
         <TextField
@@ -91,9 +99,10 @@ export default function AddBookForm() {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.year}
+          error={formik.touched.year && Boolean(formik.errors.year)}
         />
         {formik.touched.year && formik.errors.year ? (
-          <div>{formik.errors.year}</div>
+          <div style={{ color: "red" }}>{formik.errors.year}</div>
         ) : null}
 
         <TextField
@@ -102,9 +111,10 @@ export default function AddBookForm() {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.rating}
+          error={formik.touched.rating && Boolean(formik.errors.rating)}
         />
         {formik.touched.rating && formik.errors.rating ? (
-          <div>{formik.errors.rating}</div>
+          <div style={{ color: "red" }}>{formik.errors.rating}</div>
         ) : null}
 
         <TextField
@@ -113,12 +123,15 @@ export default function AddBookForm() {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.isbn}
+          error={formik.touched.isbn && Boolean(formik.errors.isbn)}
         />
         {formik.touched.isbn && formik.errors.isbn ? (
-          <div>{formik.errors.isbn}</div>
+          <div style={{ color: "red" }}>{formik.errors.isbn}</div>
         ) : null}
 
-        <Button type="submit" variant="outlined">Submit </Button>
+        <Button type="submit" variant="outlined">
+          Submit{" "}
+        </Button>
       </form>
     </Card>
   );

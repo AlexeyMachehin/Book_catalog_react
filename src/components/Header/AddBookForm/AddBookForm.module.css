@@ -2,8 +2,13 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-
   padding: 5px;
   width: 100%;
   height: 100%;
+}
+
+@media (max-width: 550px) {
+  .addBookForm {
+    gap: 10px
+  }
 }

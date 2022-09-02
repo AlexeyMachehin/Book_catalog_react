@@ -12,6 +12,21 @@
   justify-content: flex-start;
   padding-left: 5%;
   font-size: 40px;
+  text-align: center;
   /* position: sticky; */
   /* top: 10px; */
+}
+
+@media (max-width: 550px) {
+  .BookCardsSortedContainerHeader {
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 0;
+  }
+  .BookCardsSortedContainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0;
+  }
 }
