@@ -1,0 +1,10 @@
+.cardMediaContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bookCardTypography {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

@@ -1,0 +1,17 @@
+.BookCardsSortedContainer {
+  display: flex;
+  gap: 70px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding-left: 15%;
+}
+
+.BookCardsSortedContainerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 5%;
+  font-size: 40px;
+  /* position: sticky; */
+  /* top: 10px; */
+}
