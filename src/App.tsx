@@ -1,7 +1,7 @@
 import AllBooksContainer from "./components/AllBooksContainer/AllBooksContainer";
 import "./App.css";
 import HeaderContainer from "./components/Header/HeaderContainer";
-import Loader from "./components/Spinner";
+import Loader from "./components/Loader";
 import { useAppSelector } from "./app/hooks";
 import { selectorSpinner } from "./redux/selectors";
 

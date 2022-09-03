@@ -1,7 +1,7 @@
-import { SortingType } from './../interfaces/Book';
-import { Book } from "../interfaces/Book"; 
+import { SortingType } from "./../interfaces/Book";
+import { Book } from "../interfaces/Book";
 import { initializeApp } from "firebase/app";
-import { DocumentData, DocumentReference, getFirestore, OrderByDirection } from "firebase/firestore";
+import { getFirestore, OrderByDirection } from "firebase/firestore";
 import {
   collection,
   getDocs,
@@ -13,7 +13,7 @@ import {
   deleteDoc,
   updateDoc,
 } from "firebase/firestore";
-import { fromDto, toDto } from '../mapper/mapper';
+import { fromDto, toDto } from "../mapper/mapper";
 const firebaseConfig = {
   apiKey: "AIzaSyAlIuYGStK_84_kxcOKl7DCFDK5hwaX9mo",
   authDomain: "book-catalog-26495.firebaseapp.com",
@@ -24,16 +24,16 @@ const firebaseConfig = {
   measurementId: "G-Q2B6MC9PKL",
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-export async function getSortDocs(sortingType: SortingType, directionSort: OrderByDirection): Promise<Array<Book>> {
+export async function getSortDocs(
+  sortingType: SortingType,
+  directionSort: OrderByDirection
+): Promise<Array<Book>> {
   let arr: Book[] = [];
   const documents = await getDocs(
-    query(collection(db, "books"),
-     orderBy(sortingType, directionSort)
-     )
+    query(collection(db, "books"), orderBy(sortingType, directionSort))
   );
 
   documents.docs.forEach((doc) => {
@@ -67,6 +67,9 @@ export async function getDocById(id: string): Promise<Book> {
   return fromDto(document.data(), id);
 }
 
-export async function updateDocById(updatedBook: Book, id: string): Promise<void> {
+export async function updateDocById(
+  updatedBook: Book,
+  id: string
+): Promise<void> {
   await updateDoc(doc(db, "books", id), toDto(updatedBook));
 }

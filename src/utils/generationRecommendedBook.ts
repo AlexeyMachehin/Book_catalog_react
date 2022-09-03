@@ -1,8 +1,6 @@
 import { Book } from "./../interfaces/Book";
 
 export function generationRecommendedBook(allBooks: Book[]): Book {
-
-
   let currentDate = new Date();
 
   let currentYear = currentDate.getUTCFullYear();
@@ -33,8 +31,6 @@ export function generationRecommendedBook(allBooks: Book[]): Book {
     }
   });
 
-// return sortedByRating[0]
-
   if (sortedByRating.length > 1) {
     index = Math.floor(Math.random() * sortedByRating.length);
 
@@ -43,4 +39,3 @@ export function generationRecommendedBook(allBooks: Book[]): Book {
     return sortedByRating[index];
   }
 }
-

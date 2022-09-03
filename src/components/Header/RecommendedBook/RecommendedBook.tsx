@@ -6,7 +6,7 @@ import classes from "./RecommendedBook.module.css";
 
 export default function RecommendedBook(props) {
   return (
-    <Card sx={{ p: 2, width: 300, minHeight: 400  }}>
+    <Card sx={{ p: 2, width: 300, minHeight: 400 }}>
       <div className={classes.cardMediaContainer}>
         <CardMedia
           component="img"

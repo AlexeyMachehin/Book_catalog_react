@@ -9,7 +9,6 @@ import TextField from "@mui/material/TextField";
 import { Card } from "@mui/material";
 import { Button } from "@mui/material";
 import Typography from "@mui/material/Typography";
-import { setLocale } from "yup";
 
 export default function AddBookForm() {
   const dispatch = useAppDispatch();
@@ -62,7 +61,15 @@ export default function AddBookForm() {
     },
   });
   return (
-    <Card sx={{ p: 2, width: 300, minHeight: 400 }}>
+    <Card
+      sx={{
+        p: 2,
+        width: 300,
+        minHeight: 400,
+        boxShadow:
+          "1px 3px 1px -2px rgb(0 0 0 / 20%), 1px 2px 2px 1px rgb(0 0 0 / 14%), 1px 2px 4px 0px rgb(0 0 0 / 12%)",
+      }}
+    >
       <form className={classes.addBookForm} onSubmit={formik.handleSubmit}>
         <Typography variant="h5">Add new book</Typography>
 

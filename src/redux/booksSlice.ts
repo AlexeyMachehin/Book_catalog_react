@@ -3,7 +3,6 @@ import { fetchSortedBooks, removeBook, setNewBook, updateBook } from "./thunk";
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
 import { initialState } from "./state";
 
-
 export const booksAdapter = createEntityAdapter<Book>({
   selectId: (book) => book.id,
 });
@@ -25,8 +24,8 @@ export const booksSlice = createSlice({
       state.directionSort = action.payload === "author" ? "asc" : "desc";
     },
 
-    toggleSpinner(state,action){
-      state.loaderOn = action.payload
+    toggleSpinner(state, action) {
+      state.loaderOn = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -34,18 +33,17 @@ export const booksSlice = createSlice({
       .addCase(fetchSortedBooks.fulfilled, (state, action) => {
         booksAdapter.setAll(state, action.payload);
         state.books = action.payload;
-        state.loaderOn = !state.loaderOn
-        // state.recommendedBook = generationRecommendedBook(action.payload);
+        state.loaderOn = !state.loaderOn;
       })
 
       .addCase(setNewBook.fulfilled, (state, action) => {
         booksAdapter.addOne(state, action.payload);
-        state.loaderOn = !state.loaderOn
+        state.loaderOn = !state.loaderOn;
       })
 
       .addCase(removeBook.fulfilled, (state, action) => {
         booksAdapter.removeOne(state, action.payload);
-        state.loaderOn = !state.loaderOn
+        state.loaderOn = !state.loaderOn;
       })
 
       .addCase(updateBook.fulfilled, (state, action) => {
@@ -53,32 +51,31 @@ export const booksSlice = createSlice({
           id: action.payload.id,
           changes: action.payload.book,
         });
-        state.loaderOn = !state.loaderOn
+        state.loaderOn = !state.loaderOn;
       })
 
-
-
       .addCase(fetchSortedBooks.pending, (state) => {
-        state.loaderOn = !state.loaderOn
+        state.loaderOn = !state.loaderOn;
       })
 
       .addCase(setNewBook.pending, (state) => {
-        state.loaderOn = !state.loaderOn
+        state.loaderOn = !state.loaderOn;
       })
 
       .addCase(removeBook.pending, (state) => {
-        state.loaderOn = !state.loaderOn
+        state.loaderOn = !state.loaderOn;
       })
 
       .addCase(updateBook.pending, (state) => {
-        console.log('1')
-        state.loaderOn = !state.loaderOn
+        console.log("1");
+        state.loaderOn = !state.loaderOn;
       });
-
-
   },
 });
 
-// const changeSortingType = booksSlice.actions.changeSortingType;
-export const { changeSortingType, toggleDirectionSort, setRecommendedBook, toggleSpinner } =
-  booksSlice.actions;
+export const {
+  changeSortingType,
+  toggleDirectionSort,
+  setRecommendedBook,
+  toggleSpinner,
+} = booksSlice.actions;

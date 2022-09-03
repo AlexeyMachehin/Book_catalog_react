@@ -21,7 +21,6 @@ function AllBooksContainer() {
 
   useEffect(() => {
     dispatch(fetchSortedBooks({ sortingType, directionSort }));
-    // dispatch(setRecommendedBook(generationRecommendedBook(books)));
   }, [sortingType]);
 
   const [open, setOpen] = useState(false);

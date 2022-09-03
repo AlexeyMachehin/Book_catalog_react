@@ -5,8 +5,6 @@ import RecommendedBook from "./RecommendedBook/RecommendedBook";
 import classes from "./HeaderContainer.module.css";
 import { generationRecommendedBook } from "../../utils/generationRecommendedBook";
 
-
-
 export default function HeaderContainer() {
   const books = useAppSelector(selectorAllSortedBooks);
 

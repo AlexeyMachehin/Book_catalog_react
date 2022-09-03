@@ -2,9 +2,6 @@ import * as React from "react";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-// web.cjs is required for IE11 support
 import { useSpring, animated } from "react-spring";
 import EditForm from "./EditForm/EditForm";
 
@@ -60,10 +57,6 @@ const style = {
 };
 
 export default function EditBookModal(props) {
-  // const [open, setOpen] = React.useState(false);
-  // const handleOpen = () => setOpen(true);
-  // const handleClose = () => setOpen(false);
-
   return (
     <div>
       <Modal

@@ -13,4 +13,3 @@ export async function checkIsbn(isbn: string): Promise<string> {
     return isbn;
   }
 }
-

@@ -9,6 +9,6 @@
 
 @media (max-width: 550px) {
   .addBookForm {
-    gap: 10px
+    gap: 10px;
   }
 }

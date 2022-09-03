@@ -16,7 +16,7 @@ export function sort(catalog: Book[], sortingType: SortingType): Book[][] {
   });
 
   let listDataArr = Array.from(listData).sort((a, b) => {
-    if (typeof a === 'string' && typeof b === 'string') {
+    if (typeof a === "string" && typeof b === "string") {
       return a.localeCompare(b);
     }
     if (a > b) return -1;
