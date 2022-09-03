@@ -9,6 +9,7 @@
     "@fontsource/montserrat": "^4.5.12",
     "@material-ui/styles": "^4.11.5",
     "@mui/icons-material": "^5.10.2",
+    "@mui/lab": "^5.0.0-alpha.97",
     "@mui/material": "^5.10.2",
     "@reduxjs/toolkit": "^1.8.5",
     "@testing-library/jest-dom": "^5.16.5",

@@ -14,7 +14,7 @@ export default function EditForm(props) {
     initialValues: {
       title: props.book.name,
       author: props.book.author,
-      year: props.book.year,
+      year: props.book.year === 0 ? "" : props.book.year,
       rating: props.book.rating,
       isbn: props.book.isbn.replace(/✔️|❌/g, ""),
     },

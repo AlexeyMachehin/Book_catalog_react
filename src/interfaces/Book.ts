@@ -16,6 +16,8 @@ export interface BookState {
   recommendedBook: Book | number;
   directionSort: OrderByDirection;
   loaderOn: boolean;
+  errorAlert: boolean;
+  successAlert: boolean;
 }
 
 export type SortingType = "year" | "rating" | "author";

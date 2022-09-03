@@ -27,6 +27,12 @@ export const booksSlice = createSlice({
     toggleSpinner(state, action) {
       state.loaderOn = action.payload;
     },
+    changeSuccessAlert(state) {
+      state.successAlert = !state.successAlert;
+    },
+    changeErrorAlert(state) {
+      state.errorAlert = !state.errorAlert;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -39,11 +45,13 @@ export const booksSlice = createSlice({
       .addCase(setNewBook.fulfilled, (state, action) => {
         booksAdapter.addOne(state, action.payload);
         state.loaderOn = !state.loaderOn;
+        state.successAlert = !state.successAlert;
       })
 
       .addCase(removeBook.fulfilled, (state, action) => {
         booksAdapter.removeOne(state, action.payload);
         state.loaderOn = !state.loaderOn;
+        state.successAlert = !state.successAlert;
       })
 
       .addCase(updateBook.fulfilled, (state, action) => {
@@ -52,8 +60,10 @@ export const booksSlice = createSlice({
           changes: action.payload.book,
         });
         state.loaderOn = !state.loaderOn;
+        state.successAlert = !state.successAlert;
       })
 
+      
       .addCase(fetchSortedBooks.pending, (state) => {
         state.loaderOn = !state.loaderOn;
       })
@@ -67,7 +77,22 @@ export const booksSlice = createSlice({
       })
 
       .addCase(updateBook.pending, (state) => {
-        console.log("1");
+        state.loaderOn = !state.loaderOn;
+      })
+
+      
+      .addCase(setNewBook.rejected, (state) => {
+        state.errorAlert = !state.errorAlert;
+        state.loaderOn = !state.loaderOn;
+      })
+
+      .addCase(removeBook.rejected, (state) => {
+        state.errorAlert = !state.errorAlert;
+        state.loaderOn = !state.loaderOn;
+      })
+
+      .addCase(updateBook.rejected, (state) => {
+        state.errorAlert = !state.errorAlert;
         state.loaderOn = !state.loaderOn;
       });
   },
@@ -78,4 +103,6 @@ export const {
   toggleDirectionSort,
   setRecommendedBook,
   toggleSpinner,
+  changeSuccessAlert,
+  changeErrorAlert,
 } = booksSlice.actions;

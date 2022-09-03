@@ -6,4 +6,12 @@ export const initialState: BookState = {
   recommendedBook: 123,
   directionSort: "desc",
   loaderOn: false,
+  errorAlert: false,
+  successAlert: false,
 };
+
+
+
+
+
+

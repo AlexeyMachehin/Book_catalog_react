@@ -16,6 +16,10 @@ export const selectorDirectionSort = createSelector([select], (store) => store.b
 
 export const selectorSpinner= createSelector([select], (store) => store.booksReducer.loaderOn)
 
+export const selectorErrorAlert= createSelector([select], (store) => store.booksReducer.errorAlert)
+
+export const selectorSuccessAlert= createSelector([select], (store) => store.booksReducer.successAlert)
+
 
 
 
