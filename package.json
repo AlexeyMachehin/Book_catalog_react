@@ -2,7 +2,6 @@
   "name": "book_catalog_react_redux",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://alexeymachehin.github.io/Book_Catalog_React_Redux/",
   "dependencies": {
     "@emotion/react": "11.10.0",
     "@emotion/styled": "11.10.0",
